@@ -9,12 +9,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{92296043-5608-4057-80E2-759ED8D3F0F2}</ProjectGuid>
+    <ProjectGuid>{21B2E625-5CA5-44A7-A6E0-58621D054455}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Dorkytech</RootNamespace>
-    <AssemblyName>Dorkytech</AssemblyName>
+    <RootNamespace>ExamenASP</RootNamespace>
+    <AssemblyName>ExamenASP</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -43,10 +43,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxControlToolkit, Version=15.1.4.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\ASP.NET AJAX Control Toolkit\Bin\AjaxControlToolkit.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -70,91 +66,33 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AdminNewsletter.aspx" />
-    <Content Include="AdminTools.aspx" />
-    <Content Include="Anuncios.xml" />
-    <Content Include="Imagenes\dell.jpg" />
-    <Content Include="Departamentos.aspx" />
-    <Content Include="Direcciones.aspx" />
-    <Content Include="Empleados.aspx" />
-    <Content Include="Historial.aspx" />
-    <Content Include="Imagenes\hp.jpg" />
-    <Content Include="Imagenes\book_closed.gif" />
     <Content Include="packages.config" />
-    <Content Include="Dorkytech.Master" />
-    <Content Include="App_Themes\Azul\Skin1.skin" />
-    <Content Include="Imagenes\windows.jpg" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-    <Content Include="Web.sitemap" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Themes\Azul\Dorkytech.css" />
-    <Content Include="Default.aspx" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="exm8-1.aspx" />
+    <Content Include="exm8-2.aspx" />
+    <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminNewsletter.aspx.cs">
-      <DependentUpon>AdminNewsletter.aspx</DependentUpon>
+    <Compile Include="exm8-1.aspx.cs">
+      <DependentUpon>exm8-1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AdminNewsletter.aspx.designer.cs">
-      <DependentUpon>AdminNewsletter.aspx</DependentUpon>
+    <Compile Include="exm8-1.aspx.designer.cs">
+      <DependentUpon>exm8-1.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AdminTools.aspx.cs">
-      <DependentUpon>AdminTools.aspx</DependentUpon>
+    <Compile Include="exm8-2.aspx.cs">
+      <DependentUpon>exm8-2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AdminTools.aspx.designer.cs">
-      <DependentUpon>AdminTools.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Departamentos.aspx.cs">
-      <DependentUpon>Departamentos.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Departamentos.aspx.designer.cs">
-      <DependentUpon>Departamentos.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Direcciones.aspx.cs">
-      <DependentUpon>Direcciones.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Direcciones.aspx.designer.cs">
-      <DependentUpon>Direcciones.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Dorkytech.Master.cs">
-      <DependentUpon>Dorkytech.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Dorkytech.Master.designer.cs">
-      <DependentUpon>Dorkytech.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Empleados.aspx.cs">
-      <DependentUpon>Empleados.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Empleados.aspx.designer.cs">
-      <DependentUpon>Empleados.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Historial.aspx.cs">
-      <DependentUpon>Historial.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Historial.aspx.designer.cs">
-      <DependentUpon>Historial.aspx</DependentUpon>
+    <Compile Include="exm8-2.aspx.designer.cs">
+      <DependentUpon>exm8-2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -171,9 +109,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>49734</DevelopmentServerPort>
+          <DevelopmentServerPort>49920</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49734/</IISUrl>
+          <IISUrl>http://localhost:49920/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -12,6 +12,13 @@
 <body>
     <form id="form1" runat="server">
     <div>
+        <asp:SiteMapDataSource ID="DorkytechSiteMap" Runat="server" />
+        <asp:Menu ID="DorkytechMenu" runat="server" DataSourceID="DorkytechSiteMap" StaticDisplayLevels="2" ItemWrap="false">
+            <StaticItemTemplate>
+                <img src="Imagenes/book_closed.gif" width="16" height="16" alt="*" style="border-width: 0;" />
+                <%# Eval("Text") %>
+            </StaticItemTemplate>
+        </asp:Menu>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         
         </asp:ContentPlaceHolder>

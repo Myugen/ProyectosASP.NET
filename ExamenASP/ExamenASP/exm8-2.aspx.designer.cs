@@ -7,19 +7,10 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Dorkytech {
+namespace ExamenASP {
     
     
-    public partial class Dorkytech {
-        
-        /// <summary>
-        /// Control head.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+    public partial class exm8_2 {
         
         /// <summary>
         /// Control form1.
@@ -31,30 +22,39 @@ namespace Dorkytech {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Control DorkytechSiteMap.
+        /// Control LiteralMensaje.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SiteMapDataSource DorkytechSiteMap;
+        protected global::System.Web.UI.WebControls.Literal LiteralMensaje;
         
         /// <summary>
-        /// Control DorkytechMenu.
+        /// Control DataGridEmpleados.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Menu DorkytechMenu;
+        protected global::System.Web.UI.WebControls.DataGrid DataGridEmpleados;
         
         /// <summary>
-        /// Control ContentPlaceHolder1.
+        /// Control ButtonRecargar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.WebControls.Button ButtonRecargar;
+        
+        /// <summary>
+        /// Control LinkButtonEjercicio1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonEjercicio1;
     }
 }

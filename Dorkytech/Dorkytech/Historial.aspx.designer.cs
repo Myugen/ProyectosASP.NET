@@ -10,51 +10,51 @@
 namespace Dorkytech {
     
     
-    public partial class Dorkytech {
+    public partial class Historial {
         
         /// <summary>
-        /// Control head.
+        /// Control TextBoxPuesto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxPuesto;
         
         /// <summary>
-        /// Control form1.
+        /// Control DropDownListCategoria.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListCategoria;
         
         /// <summary>
-        /// Control DorkytechSiteMap.
+        /// Control DropDownListIncidencia.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SiteMapDataSource DorkytechSiteMap;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListIncidencia;
         
         /// <summary>
-        /// Control DorkytechMenu.
+        /// Control TextAreaDescripcion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Menu DorkytechMenu;
+        protected global::System.Web.UI.WebControls.TextBox TextAreaDescripcion;
         
         /// <summary>
-        /// Control ContentPlaceHolder1.
+        /// Control ButtonRegistrar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.WebControls.Button ButtonRegistrar;
     }
 }
