@@ -14,46 +14,50 @@ namespace Dorkytech {
         string cadenaConexion = ConfigurationManager.ConnectionStrings["dorkitech"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e) {
             //Preparamos el string de la consulta
-            string selectEmpleados = "SELECT EmpleadoID, Nombre, Username FROM Empleados";
+            string selectEmpleados = "SELECT EmpleadoID, Nombre, Telefono FROM Empleados";
             //Realizamos la ejecución de la conexión y la consulta
             SqlConnection conexion = new SqlConnection(cadenaConexion);
-            SqlCommand consultaEmpleados = new SqlCommand(selectEmpleados, conexion);
+            SqlDataAdapter consultaEmpleados = new SqlDataAdapter(selectEmpleados, conexion);
             try {
                 conexion.Open();
-                SqlDataReader readerEmpleados = consultaEmpleados.ExecuteReader();
-                Table tablaEmpleados = new Table();
-                TableRow filaCabecera = new TableRow();
-                TableHeaderCell columnaEmpleadoIDCabecera = new TableHeaderCell();
-                columnaEmpleadoIDCabecera.Text = "ID Empleado";
-                TableHeaderCell columnaNombreCabecera = new TableHeaderCell();
-                columnaNombreCabecera.Text = "Nombre";
-                TableHeaderCell columnaUsuarioCabecera = new TableHeaderCell();
-                columnaUsuarioCabecera.Text = "Usuario";
-                filaCabecera.Cells.Add(columnaEmpleadoIDCabecera);
-                filaCabecera.Cells.Add(columnaNombreCabecera);
-                filaCabecera.Cells.Add(columnaUsuarioCabecera);
-                tablaEmpleados.Rows.Add(filaCabecera);
-                while(readerEmpleados.Read()) {
-                    TableRow nuevaFila = new TableRow();
-                    TableCell columnaEmpleadoID = new TableCell();
-                    columnaEmpleadoID.Text = readerEmpleados["EmpleadoID"].ToString();
-                    TableCell columnaNombre = new TableCell();
-                    columnaNombre.Text = readerEmpleados["Nombre"].ToString();
-                    TableCell columnaUsername = new TableCell();
-                    columnaUsername.Text = readerEmpleados["Username"].ToString();
-                    nuevaFila.Cells.Add(columnaEmpleadoID);
-                    nuevaFila.Cells.Add(columnaNombre);
-                    nuevaFila.Cells.Add(columnaUsername);
-                    tablaEmpleados.Rows.Add(nuevaFila);
-                }
-                ContentPlaceHolder contenido = Page.Master.FindControl("ContentPlaceHolder1") as ContentPlaceHolder;
-                contenido.Controls.Add(tablaEmpleados);
+                DataSet ds = new DataSet();
+                consultaEmpleados.Fill(ds);
+                DataListEmpleados.DataSource = ds;
+                DataListEmpleados.DataBind();
             }
             catch (SqlException ex) {
                 Response.Write("Se ha producido un error en la base de datos: " + ex.Message);
             }
             finally {
                 conexion.Close();
+            }
+        }
+
+        protected void DataListEmpleados_ItemCommand(object source, DataListCommandEventArgs e) {
+            if(e.CommandName == "verDetalles") {
+                string empleadoID = e.CommandArgument.ToString();
+                int indice = e.Item.ItemIndex;
+                DataListItem itemSeleccionado = DataListEmpleados.Items[indice];
+                Literal l1 = itemSeleccionado.FindControl("Literal1") as Literal;
+                l1.Visible = true;
+                SqlConnection conexion = new SqlConnection(cadenaConexion);
+                SqlCommand consultaTelefono = new SqlCommand ("SELECT TelfMobil FROM Empleados WHERE EmpleadoID = @EmpleadoID", conexion);
+                consultaTelefono.Parameters.Add("@EmpleadoID", SqlDbType.Int);
+                consultaTelefono.Parameters["@EmpleadoID"].Value = empleadoID;
+                try {
+                    conexion.Open();
+                    SqlDataReader reader = consultaTelefono.ExecuteReader();
+                    if(reader.Read()) {
+                        l1.Text += "<strong>" + reader["TelfMobil"] + "</strong>";
+                    }
+                    reader.Close();
+                }
+                catch (SqlException ex) {
+                    Response.Write("Ha ocurrido un error en la consulta: " + ex.Message);
+                }
+                finally {
+                    conexion.Close();
+                }
             }
         }
     }
