@@ -103,6 +103,15 @@ namespace Dorkytech {
         protected global::System.Web.UI.WebControls.TextBox TextBoxTelefonoMovil;
         
         /// <summary>
+        /// Control TextBoxEmail.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxEmail;
+        
+        /// <summary>
         /// Control ButtonActualizarEmpleado.
         /// </summary>
         /// <remarks>

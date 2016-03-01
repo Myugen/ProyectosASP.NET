@@ -21,7 +21,7 @@ namespace Dorkytech {
         protected void DropDownListEmpleados_SelectedIndexChanged(object sender, EventArgs e) {
             DropDownList objeto = sender as DropDownList;
             SqlConnection conexion = new SqlConnection(cadenaConexion);
-            string selectEmpleados = "SELECT Nombre, Username, Direccion, Ciudad, Estado, Postal, Telefono, Extension, TelfMobil FROM Empleados WHERE EmpleadoID = @EmpleadoID";
+            string selectEmpleados = "SELECT Nombre, Username, Direccion, Ciudad, Estado, Postal, Telefono, Extension, TelfMobil, Email FROM Empleados WHERE EmpleadoID = @EmpleadoID";
             SqlCommand consultaEmpleado = new SqlCommand(selectEmpleados, conexion);
             consultaEmpleado.Parameters.Add("@EmpleadoID", System.Data.SqlDbType.Int);
             consultaEmpleado.Parameters["@EmpleadoID"].Value = objeto.SelectedItem.Value;
@@ -65,6 +65,10 @@ namespace Dorkytech {
                     if(registroEmpleado["TelfMobil"] != null) {
                         TextBoxTelefonoMovil.Text = registroEmpleado["TelfMobil"].ToString();
                     }
+                    TextBoxEmail.Enabled = true;
+                    if(registroEmpleado["Email"] != null) {
+                        TextBoxEmail.Text = registroEmpleado["Email"].ToString();
+                    }
                     ButtonActualizarEmpleado.Enabled = true;
                     ButtonBorrarEmpleado.Enabled = true;
                 }
@@ -81,7 +85,7 @@ namespace Dorkytech {
         protected void ButtonActualizarEmpleado_Click(object sender, EventArgs e) {
             string empleadoID = DropDownListEmpleados.SelectedItem.Value;
             SqlConnection conexion = new SqlConnection(cadenaConexion);
-            string updateEmpleado = "UPDATE Empleados SET Nombre = @Nombre, Username = @Username, Direccion = @Direccion, Ciudad = @Ciudad, Estado = @Estado, Postal = @Postal, Telefono = @Telefono, Extension = @Extension, TelfMobil = @TelfMobil WHERE EmpleadoID = @EmpleadoID";
+            string updateEmpleado = "UPDATE Empleados SET Nombre = @Nombre, Username = @Username, Direccion = @Direccion, Ciudad = @Ciudad, Estado = @Estado, Postal = @Postal, Telefono = @Telefono, Extension = @Extension, TelfMobil = @TelfMobil, Email = @Email WHERE EmpleadoID = @EmpleadoID";
             SqlCommand comandoUpdateEmpleado = new SqlCommand(updateEmpleado, conexion);
             comandoUpdateEmpleado.Parameters.Add("@Nombre", SqlDbType.NVarChar, 50);
             comandoUpdateEmpleado.Parameters["@Nombre"].Value = TextBoxNombre.Text;
@@ -101,6 +105,8 @@ namespace Dorkytech {
             comandoUpdateEmpleado.Parameters["@Extension"].Value = TextBoxExtension.Text;
             comandoUpdateEmpleado.Parameters.Add("@TelfMobil", SqlDbType.NVarChar, 50);
             comandoUpdateEmpleado.Parameters["@TelfMobil"].Value = TextBoxTelefonoMovil.Text;
+            comandoUpdateEmpleado.Parameters.Add("@Email", SqlDbType.NVarChar, 50);
+            comandoUpdateEmpleado.Parameters["@Email"].Value = TextBoxEmail.Text;
             comandoUpdateEmpleado.Parameters.Add("@EmpleadoID", SqlDbType.Int);
             comandoUpdateEmpleado.Parameters["@EmpleadoID"].Value = empleadoID;
             try {
@@ -124,17 +130,22 @@ namespace Dorkytech {
             SqlCommand comandoDeleteEmpleado = new SqlCommand(deleteEmpleado, conexion);
             comandoDeleteEmpleado.Parameters.Add("@EmpleadoID", SqlDbType.Int);
             comandoDeleteEmpleado.Parameters["@EmpleadoID"].Value = empleadoID;
-            try {
-                conexion.Open();
-                comandoDeleteEmpleado.ExecuteNonQuery();
-                RellenarDropDownList();
-                Response.Redirect(Request.RawUrl.ToString());
+            if(empleadoID != Session["EmpleadoID"].ToString()) {
+                try {
+                    conexion.Open();
+                    comandoDeleteEmpleado.ExecuteNonQuery();
+                    RellenarDropDownList();
+                    Response.Redirect(Request.RawUrl.ToString());
+                }
+                catch(SqlException ex) {
+                    Response.Write("Ha ocurrido un error en la eliminación del registro: " + ex.Message);
+                }
+                finally {
+                    conexion.Close();
+                }
             }
-            catch (SqlException ex) {
-                Response.Write("Ha ocurrido un error en la eliminación del registro: " + ex.Message);
-            }
-            finally {
-                conexion.Close();
+            else {
+                Response.Write("<script type=text/javascript>alert('No puede borrarse usted mismo')</script)");
             }
         }
 

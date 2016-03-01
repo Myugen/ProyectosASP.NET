@@ -5,86 +5,75 @@
     <h1>Administrador Toolbox</h1>
     <asp:DropDownList ID="DropDownListEmpleados" runat="server" OnSelectedIndexChanged="DropDownListEmpleados_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList><br />
     <br />
-    <table border="0">
-        <tr>
-            <td>
-                <label for="TextBoxNombre">Nombre</label>
-            </td>
-            <td>
-                <asp:TextBox ID="TextBoxNombre" runat="server" Enabled="False"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label for="TextBoxUsuario">Usuario</label>
-            </td>
-            <td>
-                <asp:TextBox ID="TextBoxUsuario" runat="server" Enabled="False"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label for="TextBoxDireccion">Dirección</label>
-            </td>
-            <td>
-                <asp:TextBox ID="TextBoxDireccion" runat="server" Enabled="False"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label for="TextBoxCiudad">Ciudad</label>
-            </td>
-            <td>
-                <asp:TextBox ID="TextBoxCiudad" runat="server" Enabled="False"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label for="TextBoxEstado">Estado</label>
-            </td>
-            <td>
-                <asp:TextBox ID="TextBoxEstado" runat="server" Enabled="False"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label for="TextBoxCodigoPostal">Código Postal</label>
-            </td>
-            <td>
-                <asp:TextBox ID="TextBoxCodigoPostal" runat="server" Enabled="False"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label for="TextBoxTelefonoFijo">Teléfono fijo</label>
-            </td>
-            <td>
-                <asp:TextBox ID="TextBoxTelefonoFijo" runat="server" Enabled="False"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label for="TextBoxExtension">Extensión</label>
-            </td>
-            <td>
-                <asp:TextBox ID="TextBoxExtension" runat="server" Enabled="False"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label for="TextBoxTelefonoMovil">Teléfono Móvil</label>
-            </td>
-            <td>
-                <asp:TextBox ID="TextBoxTelefonoMovil" runat="server" Enabled="False"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <asp:Button ID="ButtonActualizarEmpleado" runat="server" Text="Actualizar empleado" Enabled="false" OnClick="ButtonActualizarEmpleado_Click" />
-            </td>
-            <td>
-                <asp:Button ID="ButtonBorrarEmpleado" runat="server" Text="Borrar empleado" Enabled="false" OnClick="ButtonBorrarEmpleado_Click" />
-            </td>
-        </tr>
-    </table>
+    
+    <div class="row">
+        <div class="form-group">
+            <label for="TextBoxNombre">Nombre</label>
+            <asp:TextBox ID="TextBoxNombre" CssClass="form-control" runat="server" Enabled="False"></asp:TextBox>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <label for="TextBoxUsuario">Usuario</label>
+            <asp:TextBox ID="TextBoxUsuario" CssClass="form-control" runat="server" Enabled="False"></asp:TextBox>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <label for="TextBoxDireccion">Dirección</label>
+            <asp:TextBox ID="TextBoxDireccion" CssClass="form-control" runat="server" Enabled="False"></asp:TextBox>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <label for="TextBoxCiudad">Ciudad</label>
+            <asp:TextBox ID="TextBoxCiudad" CssClass="form-control" runat="server" Enabled="False"></asp:TextBox>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <label for="TextBoxEstado">Estado</label>
+            <asp:TextBox ID="TextBoxEstado" CssClass="form-control" runat="server" Enabled="False"></asp:TextBox>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <label for="TextBoxCodigoPostal">Código Postal</label>
+            <asp:TextBox CssClass="form-control" ID="TextBoxCodigoPostal" runat="server" Enabled="False"></asp:TextBox>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <label for="TextBoxTelefonoFijo">Teléfono fijo</label>
+            <asp:TextBox CssClass="form-control" ID="TextBoxTelefonoFijo" runat="server" Enabled="False"></asp:TextBox>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <label for="TextBoxExtension">Extensión</label>
+            <asp:TextBox CssClass="form-control" ID="TextBoxExtension" runat="server" Enabled="False"></asp:TextBox>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <label for="TextBoxTelefonoMovil">Teléfono Móvil</label>
+            <asp:TextBox CssClass="form-control" ID="TextBoxTelefonoMovil" runat="server" Enabled="False"></asp:TextBox>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <label for="TextBoxEmail">Correo electrónico</label>
+            <asp:TextBox CssClass="form-control" ID="TextBoxEmail" TextMode="Email" runat="server" Enabled="False"></asp:TextBox>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center">
+            <asp:Button CssClass="btn btn-warning" ID="ButtonActualizarEmpleado" runat="server" Text="Actualizar empleado" Enabled="false" OnClick="ButtonActualizarEmpleado_Click" />
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center">
+                <asp:Button CssClass="btn btn-danger" ID="ButtonBorrarEmpleado" runat="server" Text="Borrar empleado" Enabled="false" OnClick="ButtonBorrarEmpleado_Click" />
+            </div>
+        </div>
+    </div>
 </asp:Content>
